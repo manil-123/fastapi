@@ -51,10 +51,10 @@ def index():
     return dict_list
 
 
-schedule.every(5).seconds.do(get_data)
-schedule.every().hour.do(get_data)
-schedule.every().day.at("11:00").do(get_data)
-
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
+# schedule.every(5).seconds.do(get_data)
+# schedule.every().hour.do(get_data)
+# schedule.every().day.at("11:00").do(get_data)
+#
+# while 1:
+#     schedule.run_pending()
+#     time.sleep(1)
