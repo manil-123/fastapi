@@ -6,7 +6,6 @@ import requests
 import schedule
 import time
 
-import uvicorn
 from bs4 import BeautifulSoup
 from fastapi import FastAPI
 headers = {'User-Agent': 'Mozilla/5.0'}
@@ -44,14 +43,5 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    print(dictList)
     return dictList
 
-
-schedule.every(60).seconds.do(index)
-schedule.every().hour.do(index)
-schedule.every().day.at("11:00").do(index)
-
-while 1:
-    schedule.run_pending()
-    time.sleep(1)
