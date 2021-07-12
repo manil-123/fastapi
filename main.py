@@ -5,6 +5,8 @@
 import requests
 import schedule
 import time
+
+import uvicorn
 from bs4 import BeautifulSoup
 from fastapi import FastAPI
 headers = {'User-Agent': 'Mozilla/5.0'}
