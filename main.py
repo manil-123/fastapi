@@ -38,6 +38,9 @@ def get_data():
         dict_list.append(my_dict)
     dict_list.pop(0)
 
+
+get_data()
+
 # print(dictList)
 # json_object = json.dumps(dictList, indent=4)
 # print(json_object)
