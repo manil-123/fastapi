@@ -26,6 +26,7 @@ dict_list = []
 def get_data():
     trading_data = soup.find(id='live-trading')
     rows = trading_data.find_all('tr')
+    global dict_list
     for row in rows:
         my_dict = {}
         data = row.find_all('td')
