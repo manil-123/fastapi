@@ -45,3 +45,11 @@ app = FastAPI()
 def index():
     return dictList
 
+
+schedule.every(5).seconds.do(index)
+schedule.every().hour.do(index)
+schedule.every().day.at("11:00").do(index)
+
+while 1:
+    schedule.run_pending()
+    time.sleep(1)
