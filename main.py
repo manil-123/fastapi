@@ -5,6 +5,7 @@
 import requests
 import schedule
 import time
+import  json
 
 from bs4 import BeautifulSoup
 from fastapi import FastAPI
@@ -31,17 +32,20 @@ def get_data():
         my_dict = {}
         data = row.find_all('td')
         anchor = row.find_all('a')
-        for a in anchor:
+        for a in range(len(anchor)):
             for i in range(len(data)):
-                if i == 1 and a.get_text()!='':
-                    my_dict[a.get_text()] = data[i].get_text()
+                if i == 1:
+                    my_dict['companyName'] = (anchor[0]['title']).split('(')[1].replace(')', '')
+                    my_dict['symbol'] = anchor[0].get_text()
+                    my_dict['LTP'] = data[i].get_text()
+                if i == 2:
+                    my_dict['change'] = data[i].get_text()
         dict_list.append(my_dict)
     dict_list.pop(0)
 
 
 get_data()
 
-# print(dictList)
 # json_object = json.dumps(dictList, indent=4)
 # print(json_object)
 
